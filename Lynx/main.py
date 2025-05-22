@@ -14,19 +14,26 @@ from cryptography.fernet import Fernet
 version = "v1.4"
 HIBP_API_URL = "https://api.pwnedpasswords.com/range/"
 
+def pin_to_key(pin: str) -> bytes:
+    pin_hash = hashlib.sha256(pin.encode()).digest()
+    key = base64.urlsafe_b64encode(pin_hash)
+    return key
+
+
 print(f"Lynx {version}")
-key = input("Enter your key for all passwords(leave blank if you dont have it): ")
+key = input("Enter your master-pass(leave blank if you dont have it): ")
 if key == "":
-    newkey = Fernet.generate_key()
-    print(      f"\n{Fore.YELLOW}❗ SAVE THIS SOMEHERE SAFE:{Style.RESET_ALL}\n"
-                f"{Fore.GREEN}{newkey.decode()}{Style.RESET_ALL}\n"
-                f"{Fore.RED} Without it you wont access your passwords!{Style.RESET_ALL}\n"
-                )
-    key = newkey
+    newkey = input("Enter a master-pass: ")
+
+    key = pin_to_key(newkey)
 
     time.sleep(3)
-    
+
     if os.path.exists('passwords.txt') : os.remove("passwords.txt")
+
+else:
+    key = pin_to_key(key) 
+
 
 def generate_random_name(length):
     letters = string.ascii_lowercase
@@ -122,7 +129,7 @@ class lynx:
     
             if choice == '1':
                 userinput = input("Enter a website for the password that you would like to add: ")
-                passinput = input("Enter password that will be saved and attached to the last input: ")
+                passinput = input("Enter password : ")
                 encrypted_pass = lynx.encrypt(passinput)
 
                 with open('passwords.txt', 'a') as f:
