@@ -4,6 +4,9 @@
 </p>
 
 [![CodeFactor](https://www.codefactor.io/repository/github/worthyworm/lynx/badge)](https://www.codefactor.io/repository/github/worthyworm/lynx)
+[![GitHub release](https://img.shields.io/github/release/worthyworm/Lynx?include_prereleases=&sort=semver&color=blue)](https://github.com/worthyworm/Lynx/releases/)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue)](#license)
+[![issues - Lynx](https://img.shields.io/github/issues/worthyworm/Lynx)](https://github.com/worthyworm/Lynx/issues)
 
 # Lynx 🐾
 
