@@ -42,3 +42,7 @@ This project is licensed under the Apache 2.0 License. See the [LICENSE](https:/
 <p align="center">
   <b>Built with ❤️ for your security.</b>
 </p>
+
+<p align="center">
+  <b>Archived on 25.06.25, no longer maintained.</b>
+</p>
